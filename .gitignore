@@ -1,0 +1,5 @@
+*.class
+instrumentor.jar
+*.iml
+recorder.dex
+recorder/build
