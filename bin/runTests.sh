@@ -15,4 +15,8 @@ while [ $number -lt $NUM_TESTS ]; do
      sleep 1
 done
 
-
+echo "Finished tests"
+mkdir testOutputs/${packageName}
+adb pull /data/data/${packageName}/files testOutputs/${packageName}
+echo "Copied trace files"
+sleep 1
