@@ -1,56 +1,55 @@
+#takes about 2 min for each test
+
 from com.android.monkeyrunner import MonkeyRunner, MonkeyDevice
 
 device = MonkeyRunner.waitForConnection()
-pause = 0.3
+pause = 0.4
+
+# Installs the Android package. Notice that this method returns a boolean, so you can test
+# to see if the installation worked.
+#device.installPackage('myproject/bin/MyApplication.apk')
 
 # sets a variable with the package's internal name
-package = 'com.code.android.vibevault'
-
+package = 'in.shick.diode'
 # sets a variable with the name of an Activity in the package
-activity = 'com.code.android.vibevault.HomeScreen'
-
+activity = 'in.shick.diode.threads.ThreadsListActivity'
 # sets the name of the component to start
 runComponent = package + '/' + activity
 
 # Runs the component
 device.startActivity(component=runComponent)
+#loads VERY slowly
+MonkeyRunner.sleep(75)
+                                   
+# click on the MENU
+device.touch(295, 50, 'DOWN_AND_UP')
+MonkeyRunner.sleep(pause*4)
+
+# sort by
+device.touch(175, 295, 'DOWN_AND_UP')
+MonkeyRunner.sleep(2)
+
+# hot
+device.touch(120, 215, 'DOWN_AND_UP')
 MonkeyRunner.sleep(5)
 
-# click on "search"
-device.touch(80, 150, 'DOWN_AND_UP')
-MonkeyRunner.sleep(pause*5)
+# click on the MENU
+device.touch(295, 50, 'DOWN_AND_UP')
+MonkeyRunner.sleep(pause*4)
 
-# touch the edit text
-device.touch(70, 50, 'DOWN_AND_UP')
-MonkeyRunner.sleep(pause*5)
+# sort by
+device.touch(175, 295, 'DOWN_AND_UP')
+MonkeyRunner.sleep(2)
 
-device.type("new");
-MonkeyRunner.sleep(pause)
+# new
+device.touch(100, 265, 'DOWN_AND_UP')
+MonkeyRunner.sleep(2)
 
-# click to search
-device.touch(250, 50, 'DOWN_AND_UP')
-MonkeyRunner.sleep(10)
+# new
+device.touch(100, 265, 'DOWN_AND_UP')
+MonkeyRunner.sleep(2)
 
-# go back to the main screen
-device.touch(35, 50, 'DOWN_AND_UP')
-MonkeyRunner.sleep(pause*10)
-
-
-# click on "downloads"
-device.touch(80, 320, 'DOWN_AND_UP')
 MonkeyRunner.sleep(5)
-
-# go back to the main screen
-device.touch(35, 50, 'DOWN_AND_UP')
-MonkeyRunner.sleep(pause*5)
-
-
-# click on "your shows"
-device.touch(240, 165, 'DOWN_AND_UP')
-MonkeyRunner.sleep(5)
-
-
-MonkeyRunner.sleep(3)
 
 #press home and close the activity
 device.press('KEYCODE_HOME', MonkeyDevice.DOWN_AND_UP)
@@ -71,5 +70,4 @@ for i in range(1, 12):
 # Remove finger from screen
 device.touch(280, 400, MonkeyDevice.UP) 
 
-MonkeyRunner.sleep(5) 
-
+MonkeyRunner.sleep(2) 

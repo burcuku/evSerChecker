@@ -39,10 +39,10 @@ Then, start an Android device and install the instrumented app into the device:
 
     adb logcat ROB:I *:S
     
-You can collect event traces of an application using the test scripts. The script runs a specified app for the specified number of times using a monkeyrunner test script. Then, it copies the generated trace files into an output folder.
+You can collect event traces of an application using the test scripts. The script runs a specified app for the specified number of times using a monkeyrunner test script. Then, it copies the generated trace files into an output folder. The following command runs the test script 1 of com.vlille.checker app for 5 times.
 
     cd bin
-    ./runTests.sh com.vlille.checker 5
+    ./runTests.sh com.vlille.checker 1 5
     
 Then, you can check for cycles in the collected traces: 
 

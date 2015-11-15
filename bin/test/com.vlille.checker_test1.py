@@ -21,7 +21,7 @@ device.touch(160, 100, 'DOWN_AND_UP')
 MonkeyRunner.sleep(pause*4)
 
 # click on the third station's star (favorite it)
-device.touch(23, 330, 'DOWN_AND_UP')
+device.touch(23, 200, 'DOWN_AND_UP')
 MonkeyRunner.sleep(pause*2)
 
 # move to "favorite stations" tab
